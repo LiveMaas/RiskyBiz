@@ -1,4 +1,4 @@
-import csv
+import pandas as pd
 import sys
 from pathlib import Path
 
@@ -7,31 +7,25 @@ SCHEMA = [
 ]
 
 SEVERITY_MAP = {
-    '5': 'Critical',
-    '4': 'High',
-    '3': 'Medium',
-    '2': 'Low',
-    '1': 'Info'
+    5: 'Critical',
+    4: 'High',
+    3: 'Medium',
+    2: 'Low',
+    1: 'Info'
 }
 
 def parse_qualys_csv(input_path):
-    normalized = []
-    with open(input_path, newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for idx, row in enumerate(reader):
-            sev = SEVERITY_MAP.get(str(row['SEVERITY']), 'Unknown')
-            normalized.append({
-                'id': f'qualys-{idx+1}',
-                'asset': row['IP'],
-                'vuln_id': row['QID'],
-                'severity': sev,
-                'description': row['QID'],
-                'scanner': 'qualys',
-                'business_unit': None,  # To be mapped later
-                'status': 'open',
-                'discovered_date': row['FIRST_FOUND']
-            })
-    return normalized
+    df = pd.read_csv(input_path)
+    df['id'] = ['qualys-{}'.format(i+1) for i in range(len(df))]
+    df['asset'] = df['IP']
+    df['vuln_id'] = df['QID']
+    df['severity'] = df['SEVERITY'].apply(lambda x: SEVERITY_MAP.get(int(x), 'Unknown'))
+    df['description'] = df['QID']
+    df['scanner'] = 'qualys'
+    df['business_unit'] = None  # To be mapped later
+    df['status'] = 'open'
+    df['discovered_date'] = df['FIRST_FOUND']
+    return df[SCHEMA].to_dict(orient='records')
 
 def main():
     input_path = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).parent.parent / 'data/qualys/latest.csv')

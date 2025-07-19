@@ -1,0 +1,19 @@
+
+wiz:
+  vulnTitle: vuln_name
+  severityLevel: severity
+  ipAddress: asset_ip
+  tags: tags
+  detectedAt: discovered_on
+
+qualys:
+  QID: vuln_name
+  SEVERITY: severity
+  IP: asset_ip
+  FIRST_FOUND: discovered_on
+
+tenable:
+  Plugin Name: vuln_name
+  Risk: severity
+  Host: asset_ip
+  First Seen: discovered_on

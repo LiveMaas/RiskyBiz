@@ -1,0 +1,5 @@
+Plugin Name,Risk,Host,First Seen
+SMB Signing not required,High,10.0.0.5,2024-09-01
+Shellshock,Critical,10.0.1.3,2024-09-10
+Heartbleed,Medium,192.168.0.22,2024-10-05
+Weak SNMP,High,10.0.0.6,2024-10-25

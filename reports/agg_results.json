@@ -1,0 +1,149 @@
+{
+  "Engineering": {
+    "score": 66,
+    "findings": [
+      {
+        "id": "wiz-3",
+        "asset": "192.168.0.22",
+        "vuln_id": "SSL Weak Cipher",
+        "severity": "Medium",
+        "description": "SSL Weak Cipher",
+        "scanner": "wiz",
+        "business_unit": "Engineering",
+        "status": "open",
+        "discovered_date": "2024-12-01"
+      },
+      {
+        "id": "tenable-3",
+        "asset": "192.168.0.22",
+        "vuln_id": "Heartbleed",
+        "severity": "Medium",
+        "description": "Heartbleed",
+        "scanner": "tenable",
+        "business_unit": "Engineering",
+        "status": "open",
+        "discovered_date": "2024-10-05"
+      },
+      {
+        "id": "qualys-3",
+        "asset": "192.168.0.22",
+        "vuln_id": "Q1003",
+        "severity": "High",
+        "description": "Q1003",
+        "scanner": "qualys",
+        "business_unit": "Engineering",
+        "status": "open",
+        "discovered_date": "2024-11-21"
+      }
+    ]
+  },
+  "Finance": {
+    "score": 73,
+    "findings": [
+      {
+        "id": "wiz-1",
+        "asset": "10.0.0.5",
+        "vuln_id": "Open SSH",
+        "severity": "High",
+        "description": "Open SSH",
+        "scanner": "wiz",
+        "business_unit": "Finance",
+        "status": "open",
+        "discovered_date": "2024-11-01"
+      },
+      {
+        "id": "wiz-4",
+        "asset": "10.0.0.6",
+        "vuln_id": "Outdated Apache",
+        "severity": "High",
+        "description": "Outdated Apache",
+        "scanner": "wiz",
+        "business_unit": "Finance",
+        "status": "open",
+        "discovered_date": "2024-11-20"
+      },
+      {
+        "id": "tenable-1",
+        "asset": "10.0.0.5",
+        "vuln_id": "SMB Signing not required",
+        "severity": "High",
+        "description": "SMB Signing not required",
+        "scanner": "tenable",
+        "business_unit": "Finance",
+        "status": "open",
+        "discovered_date": "2024-09-01"
+      },
+      {
+        "id": "tenable-4",
+        "asset": "10.0.0.6",
+        "vuln_id": "Weak SNMP",
+        "severity": "High",
+        "description": "Weak SNMP",
+        "scanner": "tenable",
+        "business_unit": "Finance",
+        "status": "open",
+        "discovered_date": "2024-10-25"
+      },
+      {
+        "id": "qualys-1",
+        "asset": "10.0.0.5",
+        "vuln_id": "Q1001",
+        "severity": "Medium",
+        "description": "Q1001",
+        "scanner": "qualys",
+        "business_unit": "Finance",
+        "status": "open",
+        "discovered_date": "2024-10-10"
+      },
+      {
+        "id": "qualys-4",
+        "asset": "10.0.0.6",
+        "vuln_id": "Q1004",
+        "severity": "Medium",
+        "description": "Q1004",
+        "scanner": "qualys",
+        "business_unit": "Finance",
+        "status": "open",
+        "discovered_date": "2024-12-01"
+      }
+    ]
+  },
+  "HR": {
+    "score": 100,
+    "findings": [
+      {
+        "id": "wiz-2",
+        "asset": "10.0.1.3",
+        "vuln_id": "Log4Shell",
+        "severity": "Critical",
+        "description": "Log4Shell",
+        "scanner": "wiz",
+        "business_unit": "HR",
+        "status": "open",
+        "discovered_date": "2024-11-15"
+      },
+      {
+        "id": "tenable-2",
+        "asset": "10.0.1.3",
+        "vuln_id": "Shellshock",
+        "severity": "Critical",
+        "description": "Shellshock",
+        "scanner": "tenable",
+        "business_unit": "HR",
+        "status": "open",
+        "discovered_date": "2024-09-10"
+      },
+      {
+        "id": "qualys-2",
+        "asset": "10.0.1.3",
+        "vuln_id": "Q1002",
+        "severity": "Critical",
+        "description": "Q1002",
+        "scanner": "qualys",
+        "business_unit": "HR",
+        "status": "open",
+        "discovered_date": "2024-11-01"
+      }
+    ]
+  }
+}

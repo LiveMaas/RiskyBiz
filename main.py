@@ -7,6 +7,7 @@ from scripts.normalize import load_schema, normalize_findings
 from scripts.mapping import load_biz_unit_mapping, map_findings_to_biz_unit
 from scripts.aggregate import aggregate_findings
 import pandas as pd
+import subprocess
 
 def main():
     base = Path(__file__).parent
@@ -31,6 +32,18 @@ def main():
     summary = [(unit, data['score'], len(data['findings'])) for unit, data in agg.items()]
     df = pd.DataFrame(summary, columns=['Business Unit', 'Risk Score', 'Finding Count'])
     print(df.to_string(index=False))
+    # Save aggregation as JSON
+    reports_dir = base / 'reports'
+    pdf_dir = reports_dir / 'output_pdfs'
+    reports_dir.mkdir(exist_ok=True)
+    pdf_dir.mkdir(exist_ok=True)
+    agg_json_path = reports_dir / 'agg_results.json'
+    with open(agg_json_path, 'w') as f:
+        json.dump(agg, f, indent=2)
+    # Generate report (bar chart + PDF)
+    subprocess.run([
+        'python', str(base / 'scripts/report_generator.py'), str(agg_json_path)
+    ], check=True)
 
 if __name__ == '__main__':
     main() 
